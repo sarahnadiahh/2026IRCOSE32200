@@ -43,6 +43,24 @@
 /proc:process information
 /tmp:temporary files
 
+## File Permissions
+r = read
+w = write
+x = execute
+
+Eg:
+-rwxr-xr-x
+
+Owner:rwx
+Group:r-x
+Others:r-x
+
+### Common commands
+ls -l:view permissions
+chmod 755 filename:change permissions
+chmod +x script.sh:make a script executable
+chown username filename:change file owner
+
 
 
 
