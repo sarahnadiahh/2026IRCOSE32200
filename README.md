@@ -273,3 +273,79 @@ if(pid == 0) {
 }
 ```
 The child process runs the ls command while the parent continues its execution.
+
+## Inter-Process Communication (IPC)
+Mechanisms that allow processes to exchange information and synchronize their actions.
+Since processes have separate memory spaces, special methods are needed for communication.
+IPC is widely used in operating systems and distributed applications.
+
+### Why IPC is Needed
+Processes need to:
+- Exchange data
+- Coordinate tasks
+- Share resources
+- Synchronize execution
+
+Without IPC, processes would operate completely independently.
+
+### Common IPC Mechanisms
+Linux provides several IPC methods:
+- Pipes
+- Signals
+- Shared Memory
+- Message Queues
+
+### Pipes
+A pipe allows data to flow from one process to another.
+eg:
+```bash
+ls | grep txt
+```
+- ls produces output
+- grep receives the output as input
+
+Pipes are commonly used in shell commands.
+
+### Signals
+Signals are notifications sent to a process.
+eg:
+SIGINT
+SIGKILL
+SIGSTOP
+SIGTERM
+
+#### Common command:
+```bash
+kill PID
+```
+Signals can be used to:
+
+- Stop processes
+- Resume processes
+- Notify processes of events
+
+### Shared Memory
+Shared memory allows multiple processes to access the same memory region.
+
+Advantages:
+- Very fast communication
+- Efficient data sharing
+Disadvantages:
+- Requires synchronization
+- Can cause race conditions
+
+### Message Queues
+Allow processes to exchange messages.
+Characteristics:
+- Messages are stored in a queue
+- Processes do not need to run simultaneously
+- Communication is organized and structured
+
+### Synchronization
+When multiple processes access shared resources, synchronization is important.
+Common synchronization methods include:
+- Semaphores
+- Mutexes
+- Locks
+
+Synchronization helps prevent data corruption.
