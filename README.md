@@ -136,3 +136,70 @@ A typical process memory layout consists of:
 +------------------+
 |   Text Segment   |   -contains executable instructions a program
 +------------------+
+
+## System Calls
+-A mechanism that allows user program to request services from the OS kernel. Apps cannot directly access hardware resources so instead they communicate with kernel through system calls. System calls acts as an interface between user space and kernel space.
+
+Linux divides execution into two areas:
+
+### User Space
+
+- Runs application programs
+- Limited privileges
+- Cannot directly access hardware
+
+eg: Web browsers,text editors,games
+
+### Kernel Space
+
+- Runs the operating system kernel
+- Has full access to hardware resources
+- Manages memory, processes, and devices
+
+### Common System Calls
+
+#### open()
+Opens a file.
+
+```c
+int fd = open("file.txt", O_RDONLY);
+```
+
+Returns a file descriptor.
+
+#### read()
+Reads data from a file.
+
+```c
+read(fd, buffer, size);
+```
+
+#### write()
+Writes data to a file.
+
+```c
+write(fd, buffer, size);
+
+```
+#### close()
+Closes an opened file.
+
+```c
+close(fd);
+```
+
+#### fork()
+Creates a new process.
+
+```c
+pid_t pid = fork();
+```
+
+After fork(), both parent and child processes continue execution.
+
+#### exec()
+Replaces the current process with a new program.
+
+```c
+execl("/bin/ls", "ls", NULL);
+```
