@@ -116,3 +116,23 @@ kill -9 PID
 killall process_name
 ```
 -Terminate processes by name
+
+## Memory Management
+The goal is to use available memory efficiently while preventing processes from interfering with each other.
+
+### Memory Layout of a process
+A typical process memory layout consists of:
++------------------+
+|     Stack        |   -stores function parameters, local variables, return addresses
++------------------+
+|                  |
+|       Free       |
+|      Memory      |
+|                  |
++------------------+
+|      Heap        |   -for dynamic memory allocation
++------------------+
+|   Data Segment   |   -stores global and static variables
++------------------+
+|   Text Segment   |   -contains executable instructions a program
++------------------+
