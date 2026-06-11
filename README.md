@@ -203,3 +203,73 @@ Replaces the current process with a new program.
 ```c
 execl("/bin/ls", "ls", NULL);
 ```
+
+## Process Creation in Linux
+Create new processes using system calls.
+The two most important system calls:
+- fork()
+- exec()
+commonly used together to run new programs.
+
+### fork()
+fork() creates a new process called a child process.
+
+```c
+pid_t pid = fork();
+```
+
+After fork() is executed:
+- The parent process continues running.
+- A child process is created.
+- Both processes execute independently.
+
+### Return Values of fork()
+fork() returns different values depending on the process.
+
+### Parent Process
+Returns the PID of the child process.
+
+### Child Process
+Returns 0.
+
+### Failure
+Returns -1.
+
+eg:
+```c
+pid_t pid = fork();
+
+if(pid == 0) {
+    printf("Child Process\n");
+}
+else if(pid > 0) {
+    printf("Parent Process\n");
+}
+```
+
+### The exec() System Call
+Replaces the current process image with a new program.
+eg:
+```c
+execl("/bin/ls", "ls", NULL);
+```
+
+After exec() succeeds:
+
+- The old program is removed from memory.
+- The new program starts executing.
+- Execution does not return to the original code.
+
+## Using fork() and exec() Together
+1. Create a child process using fork().
+2. Execute a new program using exec().
+
+eg:
+```c
+pid_t pid = fork();
+
+if(pid == 0) {
+    execl("/bin/ls", "ls", NULL);
+}
+```
+The child process runs the ls command while the parent continues its execution.
