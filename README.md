@@ -61,6 +61,58 @@ chmod 755 filename:change permissions
 chmod +x script.sh:make a script executable
 chown username filename:change file owner
 
+## Process  Management
+Process - program that is currently being executed
 
+When a program runs, os creates a process and allocates resources
+-CPU time
+-Memory
+-File descriptors
+-Process ID(PID)
 
+Each process has a unique PID that identifies it within the system
 
+### Process States
+#### Running
+currently executing in CPU
+
+#### Ready
+waiting for CPU time
+
+#### Waiting(Blocked)
+waiting for an event such as user input or disk I/O
+
+#### Terminated
+finished execution
+
+### Viewing Processes
+```bash 
+ps
+```
+-display currently running processes
+
+```bash
+ps -aux
+```
+-display detailed process info
+
+```bash
+top
+```
+-display processes in real time
+
+### Terminating Processes
+```bash
+kill PID
+``` 
+-Kill a process using its PID
+
+```bash
+kill -9 PID
+```
+-Force termination
+
+```bash
+killall process_name
+```
+-Terminate processes by name
